@@ -5,7 +5,7 @@ const client = contentful.createClient({
   accessToken: "529fe39d0d6abbe4165fb6e18842f379eb93c81bde1faf63bdcb70b59ac8dc35"
 });
 // variables
-console.log(client);
+
 
 
 const cartBtn = document.querySelector(".cart-btn");
@@ -223,7 +223,7 @@ class UI {
     Storage.saveCart(cart);
     let button = this.getSingleButton(id);
     button.disabled = false;
-    button.innerHTML = `<i class="fas fa-shopping-cart"></>add to cart`;
+    button.innerHTML = `<i class="fas fa-shopping-cart"></i>add to cart`;
   }
   getSingleButton(id) {
     return buttonsDOM.find(button => button.dataset.id === id);
