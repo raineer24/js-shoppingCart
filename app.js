@@ -27,7 +27,11 @@ class Products {
   async getProducts() {
     try {
 
-      let contentful = await client.getEntries();
+      let contentful = await client.getEntries({
+          content_type: "nerweb"
+        }
+
+      );
       console.log(contentful);
 
 
