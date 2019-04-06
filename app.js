@@ -106,7 +106,8 @@ class UI {
     cart.map(item => {
       tempTotal += item.price * item.count;
       itemsTotal += item.amount;
-    });
+    })
+    cartTotal.innerText = parseFloat(tempTotal.toFixed(2))
   }
 }
 
