@@ -168,6 +168,8 @@ class UI {
         let tempItem = cart.find(item => item.id === id);
         tempItem.amount = tempItem.amount + 1;
         Storage.saveCart(cart);
+        this.setCartValues(cart);
+
       }
     });
   }
