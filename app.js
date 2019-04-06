@@ -1,7 +1,7 @@
 // variables
 
 const cartBtn = document.querySelector(".cart-btn");
-const closeCart = document.querySelector(".close-cart");
+const closeCartBtn = document.querySelector(".close-cart");
 const clearCart = document.querySelector(".clear-cart");
 const cartDOM = document.querySelector(".cart");
 const cartOverlay = document.querySelector(".cart-overlay");
@@ -140,6 +140,8 @@ class UI {
     cart = Storage.getCart();
     this.setCartValues(cart);
     this.populate(cart);
+    cartBtn.addEventListener('click', this.showCart);
+    closeCartBtn, addEventListener('click', this.hideCart);
   }
   populateCart(cart) {
     cart.forEach(item => this.addCartItem(item));
