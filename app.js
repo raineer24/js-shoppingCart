@@ -179,7 +179,8 @@ class UI {
         if (tempItem.amount > 0) {
 
         } else {
-
+          cartContent.removeChild(lowerAmount.parentElement.parentElement);
+          this.removeItem(id);
         }
       }
     });
