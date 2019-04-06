@@ -177,7 +177,7 @@ class UI {
         let tempItem = cart.find(item => item.id === id);
         tempItem.amount = tempItem.amount - 1;
         if (tempItem.amount > 0) {
-
+          Storage.saveCart(cart);
         } else {
           cartContent.removeChild(lowerAmount.parentElement.parentElement);
           this.removeItem(id);
