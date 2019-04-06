@@ -95,7 +95,7 @@ class UI {
         //  set cart values
         this.setCartValues(cart);
         // display cart Items
-        this.addCartItem(item);
+        this.addCartItem(cartItem);
         // show the cart
       });
 
