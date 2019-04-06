@@ -79,7 +79,12 @@ class Storage {
 document.addEventListener("DOMContentLoaded", () => {
   const ui = new UI();
   const products = new Products();
+  Storage.saveProducts(products);
 
   // get all products
-  products.getProducts().then(products => ui.displayProducts(products));
+  products.getProducts().then(products => {
+    ui.displayProducts(products);
+
+    Storage.saveProducts(products);
+  });
 });
