@@ -139,12 +139,19 @@ class UI {
   setupAPP() {
     cart = Storage.getCart();
     this.setCartValues(cart);
-    this.populate(cart);
+    this.populateCart(cart);
     cartBtn.addEventListener('click', this.showCart);
-    closeCartBtn, addEventListener('click', this.hideCart);
+    closeCartBtn.addEventListener('click', this.hideCart);
   }
   populateCart(cart) {
     cart.forEach(item => this.addCartItem(item));
+  }
+  hideCart() {
+    cartOverlay.classList.remove('transparentBcg');
+    cartDOM.classList.remove('showCart');
+  }
+  cartLogic() {
+
   }
 }
 
@@ -155,7 +162,7 @@ class Storage {
   }
   static getProduct(id) {
     let products = JSON.parse(localStorage.getItem('products'));
-    return products.findq(product => product.id === id);
+    return products.find(product => product.id === id);
   }
   static saveCart(cart) {
     localStorage.setItem('cart', JSON.stringify(cart));
@@ -179,5 +186,6 @@ document.addEventListener("DOMContentLoaded", () => {
     Storage.saveProducts(products);
   }).then(() => {
     ui.getBagButtons();
+    ui.cartLogic()
   });
 });
