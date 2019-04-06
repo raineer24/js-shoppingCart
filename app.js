@@ -167,6 +167,9 @@ class UI {
     Storage.saveCart(cart);
     let button = this.getSingleButton(id);
   }
+  getSingleButton() {
+
+  }
 }
 
 //local storage
