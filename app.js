@@ -107,7 +107,8 @@ class UI {
       tempTotal += item.price * item.count;
       itemsTotal += item.amount;
     })
-    cartTotal.innerText = parseFloat(tempTotal.toFixed(2))
+    cartTotal.innerText = parseFloat(tempTotal.toFixed(2));
+    cartItems.innerText = itemsTotal;
   }
 }
 
