@@ -160,9 +160,12 @@ class UI {
   clearCart() {
     let cartItems = cart.map(item => item.id);
     cartItems.forEach(id => this.removeItem(id));
-    while (cartContent.children.length > 0) {
+    console.log(cartContent.children);
 
+    while (cartContent.children.length > 0) {
+      cartContent.removeChild(cartContent.children[0])
     }
+    this.hideCart();
   }
   removeItem(id) {
     cart = cart.filter(item => item.id !== id);
@@ -173,7 +176,7 @@ class UI {
     button.innerHTML = `<i class="fas fa-shopping-cart></>add to cart`;
   }
   getSingleButton(id) {
-    return buttonsDOM.find(button => buutton.dataset.id === id);
+    return buttonsDOM.find(button => button.dataset.id === id);
   }
 }
 
