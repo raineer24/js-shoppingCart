@@ -139,6 +139,10 @@ class UI {
   setupAPP() {
     cart = Storage.getCart();
     this.setCartValues(cart);
+    this.populate(cart);
+  }
+  populateCart() {
+
   }
 }
 
