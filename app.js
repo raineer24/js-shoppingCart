@@ -112,7 +112,9 @@ class UI {
     cartItems.innerText = itemsTotal;
   }
   addCartItem(item) {
-
+    const div = document.createElement('div');
+    div.classList.add('cart-item');
+    div.innerHTML = ``
   }
 }
 
