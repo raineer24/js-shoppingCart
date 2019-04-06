@@ -137,7 +137,7 @@ class UI {
     cartDOM.classList.add('showCart');
   }
   setupAPP() {
-
+    cart = Storage.getCart();
   }
 }
 
@@ -155,6 +155,7 @@ class Storage {
   }
   static getCart() {
     return localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
+    //return something, check if localstorage exist.
   }
 }
 
