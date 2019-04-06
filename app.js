@@ -93,11 +93,15 @@ class UI {
         // save cart in localStorage
         Storage.saveCart(cart);
         //  set cart values
+        this.setCartValues(cart);
         // display cart Items
         // show the cart
       });
 
     });
+  }
+  setCartValues(cart) {
+
   }
 }
 
