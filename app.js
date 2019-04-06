@@ -156,6 +156,9 @@ class UI {
       this.clearCart();
     });
     // cart functionality
+    cartContent.addEventListener('click', event => {
+      console.log(event.target);
+    });
   }
   clearCart() {
     let cartItems = cart.map(item => item.id);
