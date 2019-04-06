@@ -169,6 +169,7 @@ class UI {
         tempItem.amount = tempItem.amount + 1;
         Storage.saveCart(cart);
         this.setCartValues(cart);
+        addAmount.nextElementSibling.innerText = tempItem.amount;
 
       }
     });
