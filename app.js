@@ -104,7 +104,8 @@ class UI {
     let tempTotal = 0;
     let itemsTotal = 0;
     cart.map(item => {
-
+      tempTotal += item.price * item.count;
+      itemsTotal += item.amount;
     });
   }
 }
