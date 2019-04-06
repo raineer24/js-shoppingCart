@@ -72,7 +72,7 @@ class UI {
 //local storage
 class Storage {
   static saveProducts(products) {
-
+    localStorage.setItem('products', JSON.stringify(products));
   }
 }
 
