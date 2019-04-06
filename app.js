@@ -157,7 +157,9 @@ class UI {
     });
     // cart functionality
     cartContent.addEventListener('click', event => {
-      console.log(event.target);
+      if (event.target.classList.contains('remove-item')) {
+
+      }
     });
   }
   clearCart() {
