@@ -102,6 +102,7 @@ class Storage {
   }
   static getProduct(id) {
     let products = JSON.parse(localStorage.getItem('products'));
+    return products.find(product => product.id === id);
   }
 }
 
