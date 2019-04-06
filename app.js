@@ -141,8 +141,8 @@ class UI {
     this.setCartValues(cart);
     this.populate(cart);
   }
-  populateCart() {
-
+  populateCart(cart) {
+    cart.forEach(item => this.addCartItem(item));
   }
 }
 
