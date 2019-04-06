@@ -97,7 +97,6 @@ class UI {
         // display cart Items
         this.addCartItem(cartItem);
         // show the cart
-        this.showCart();
       });
 
     });
@@ -130,9 +129,7 @@ class UI {
           </div>
     `;
     cartContent.appendChild(div);
-  }
-  showCart() {
-
+    console.log(cartContent);
   }
 }
 
