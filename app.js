@@ -136,7 +136,9 @@ class UI {
     cartOverlay.classList.add('transparentBcg');
     cartDOM.classList.add('showCart');
   }
-  setupAPP() {}
+  setupAPP() {
+
+  }
 }
 
 //local storage
@@ -150,6 +152,9 @@ class Storage {
   }
   static saveCart(cart) {
     localStorage.setItem('cart', JSON.stringify(cart));
+  }
+  static getCart() {
+    return localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
   }
 }
 
