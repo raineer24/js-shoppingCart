@@ -167,8 +167,8 @@ class UI {
     Storage.saveCart(cart);
     let button = this.getSingleButton(id);
   }
-  getSingleButton() {
-
+  getSingleButton(id) {
+    return buttonsDOM.find(button => buutton.dataset.id === id);
   }
 }
 
