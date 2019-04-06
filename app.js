@@ -69,7 +69,10 @@ class UI {
   }
   getBagButtons() {
     const buttons = [...document.querySelectorAll('.bag-btn')];
-    console.log(buttons)
+    buttons.forEach(button => {
+      let id = button.dataset.id;
+      console.log(id);
+    })
   }
 }
 
