@@ -101,7 +101,7 @@ class Storage {
     localStorage.setItem('products', JSON.stringify(products));
   }
   static getProduct(id) {
-
+    let products = JSON.parse(localStorage.getItem('products'));
   }
 }
 
