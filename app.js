@@ -55,5 +55,5 @@ document.addEventListener("DOMContentLoaded", () => {
   const products = new Products();
 
   // get all products
-  products.getProducts().then(data => console.log(data));
+  products.getProducts().then(products => console.log(products));
 });
