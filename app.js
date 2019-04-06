@@ -156,7 +156,9 @@ class UI {
     });
   }
   clearCart() {
-    console.log(this);
+    let cartItems = cart.map(item => item.id);
+    console.log(cartItems);
+
   }
 }
 
