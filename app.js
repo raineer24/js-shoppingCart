@@ -116,10 +116,10 @@ class UI {
     div.classList.add('cart-item');
     div.innerHTML =
       `
-       <img src="./images/product-1.jpeg" alt="product">
+       <img src=${item.image} alt="product">
           <div>
-            <h4>queen bed</h4>
-            <h5>$24.00</h5>
+            <h4>${item.title}</h4>
+            <h5>${item.price}</h5>
             <span class="remove-item">remove</span>
           </div>
           <div>
