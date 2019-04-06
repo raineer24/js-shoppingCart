@@ -171,6 +171,8 @@ class UI {
         this.setCartValues(cart);
         addAmount.nextElementSibling.innerText = tempItem.amount;
 
+      } else if (event.target.classList.contains("fa-chevron-down")) {
+
       }
     });
   }
