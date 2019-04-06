@@ -129,7 +129,9 @@ class UI {
           </div>
     `;
     cartContent.appendChild(div);
-    console.log(cartContent);
+  }
+  showCart() {
+
   }
 }
 
