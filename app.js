@@ -160,7 +160,7 @@ class UI {
       if (event.target.classList.contains('remove-item')) {
         let removeItem = event.target;
         let id = removeItem.dataset.id;
-        console.log(removeItem.parentElement.parentElement);
+        cartContent.removeChild(removeItem.parentElement.parentElement);
 
         this.removeItem(id);
       }
