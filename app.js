@@ -70,7 +70,11 @@ class UI {
 }
 
 //local storage
-class Storage {}
+class Storage {
+  static saveProducts(products) {
+
+  }
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   const ui = new UI();
