@@ -174,7 +174,7 @@ class UI {
       } else if (event.target.classList.contains("fa-chevron-down")) {
         let lowerAmount = event.target;
         let id = lowerAmount.dataset.id;
-        console.log(lowerAmount);
+        let tempItem = cart.find(item => item.id === id);
       }
     });
   }
