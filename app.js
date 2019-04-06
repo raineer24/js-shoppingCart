@@ -27,9 +27,12 @@ class Products {
   async getProducts() {
     try {
 
-      client.getEntries()
-        .then((response) => console.log(response.items))
-        .catch(console.error)
+      let contentful = await client.getEntries();
+      console.log(contentful);
+
+
+      // .then((response) => console.log(response.items))
+      // .catch(console.error)
 
       let result = await fetch("products.json");
       let data = await result.json();
