@@ -10,19 +10,18 @@ const cartTotal = document.querySelector(".cart-total");
 const cartContent = document.querySelector(".cart-content");
 const productsDOM = document.querySelector(".products-center");
 
-//cart 
+//cart
 let cart = [];
 
 // getting the products
-class Products {
-
-}
-// display the products 
-class UI {
-
-}
+class Products {}
+// display the products
+class UI {}
 
 //local storage
-class Storage {
+class Storage {}
 
-}
+document.addEventListener("DOMContentloaded", () => {
+  const ui = new UI();
+  const products = new Products();
+});
