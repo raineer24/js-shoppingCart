@@ -109,6 +109,7 @@ class UI {
     })
     cartTotal.innerText = parseFloat(tempTotal.toFixed(2));
     cartItems.innerText = itemsTotal;
+    console.log(cartTotal, cartItems);
   }
 }
 
