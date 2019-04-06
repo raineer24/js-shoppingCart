@@ -89,8 +89,10 @@ class UI {
           ...Storage.getProduct(id),
           amount: 1
         };
-        console.log(cartItem);
+        //console.log(cartItem);
         // add product to the cart
+        cart = [...cart, cartItem];
+        console.log(cart)
         // save cart in localStorage
         //  set cart values
         // display cart Items
