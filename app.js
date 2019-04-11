@@ -1,7 +1,7 @@
 // variables
 
 const cartBtn = document.querySelector(".cart-btn");
-const closeCart = document.querySelector(".close-cart");
+const closeCartBtn = document.querySelector(".close-cart");
 const clearCart = document.querySelector(".clear-cart");
 const cartDOM = document.querySelector(".cart");
 const cartOverlay = document.querySelector(".cart-overlay");
@@ -136,6 +136,16 @@ class UI {
     cartOverlay.classList.add('transparentBcg');
     cartDOM.classList.add('showCart');
   }
+  setupAPP() {
+    cart = Storage.getCart();
+    this.setCartValues(cart);
+    this.populate(cart);
+    cartBtn.addEventListener('click', this.showCart);
+    closeCartBtn, addEventListener('click', this.hideCart);
+  }
+  populateCart(cart) {
+    cart.forEach(item => this.addCartItem(item));
+  }
 }
 
 //local storage
@@ -145,16 +155,22 @@ class Storage {
   }
   static getProduct(id) {
     let products = JSON.parse(localStorage.getItem('products'));
-    return products.find(product => product.id === id);
+    return products.findq(product => product.id === id);
   }
   static saveCart(cart) {
     localStorage.setItem('cart', JSON.stringify(cart));
+  }
+  static getCart() {
+    return localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
+    //return something, check if localstorage exist.
   }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   const ui = new UI();
   const products = new Products();
+  //setup App
+  ui.setupAPP();
   Storage.saveProducts(products);
 
   // get all products
