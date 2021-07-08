@@ -1,4 +1,12 @@
+const client = contentful.createClient({
+  // This is the space ID. A space is like a project folder in Contentful terms
+  space: "lgu5ghu1cmjx",
+  // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
+  accessToken: "529fe39d0d6abbe4165fb6e18842f379eb93c81bde1faf63bdcb70b59ac8dc35"
+});
 // variables
+
+
 
 const cartBtn = document.querySelector(".cart-btn");
 const closeCartBtn = document.querySelector(".close-cart");
@@ -18,9 +26,22 @@ let buttonsDOM = [];
 class Products {
   async getProducts() {
     try {
-      let result = await fetch("products.json");
-      let data = await result.json();
-      let products = data.items;
+
+      let contentful = await client.getEntries({
+          content_type: "nerweb"
+        }
+
+      );
+      console.log(contentful);
+
+
+      // .then((response) => console.log(response.items))
+      // .catch(console.error)
+
+      // let result = await fetch("products.json");
+      // let data = await result.json();
+
+      let products = contentful.items;
       products = products.map(item => {
         const {
           title,
@@ -156,6 +177,36 @@ class UI {
       this.clearCart();
     });
     // cart functionality
+    cartContent.addEventListener('click', event => {
+      if (event.target.classList.contains('remove-item')) {
+        let removeItem = event.target;
+        let id = removeItem.dataset.id;
+        cartContent.removeChild(removeItem.parentElement.parentElement);
+        this.removeItem(id);
+      } else if (event.target.classList.contains("fa-chevron-up")) {
+        let addAmount = event.target;
+        let id = addAmount.dataset.id;
+        let tempItem = cart.find(item => item.id === id);
+        tempItem.amount = tempItem.amount + 1;
+        Storage.saveCart(cart);
+        this.setCartValues(cart);
+        addAmount.nextElementSibling.innerText = tempItem.amount;
+
+      } else if (event.target.classList.contains("fa-chevron-down")) {
+        let lowerAmount = event.target;
+        let id = lowerAmount.dataset.id;
+        let tempItem = cart.find(item => item.id === id);
+        tempItem.amount = tempItem.amount - 1;
+        if (tempItem.amount > 0) {
+          Storage.saveCart(cart);
+          this.setCartValues(cart);
+          lowerAmount.previousElementSibling.innerText = tempItem.amount;
+        } else {
+          cartContent.removeChild(lowerAmount.parentElement.parentElement);
+          this.removeItem(id);
+        }
+      }
+    });
   }
   clearCart() {
     let cartItems = cart.map(item => item.id);
@@ -173,7 +224,7 @@ class UI {
     Storage.saveCart(cart);
     let button = this.getSingleButton(id);
     button.disabled = false;
-    button.innerHTML = `<i class="fas fa-shopping-cart"></>add to cart`;
+    button.innerHTML = `<i class="fas fa-shopping-cart"></i>add to cart`;
   }
   getSingleButton(id) {
     return buttonsDOM.find(button => button.dataset.id === id);
